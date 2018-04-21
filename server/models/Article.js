@@ -1,47 +1,43 @@
 const mongoose = require('mongoose');
 
-let ArticleSchema = new mongoose.Schema(
-  {
-    text: String,
-    title: String,
-    description: String,
-    feature_img: String,
-    claps: Number,
-    author: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+const ArticleSchema = new mongoose.Schema({
+  text: String,
+  title: String,
+  description: String,
+  feature_img: String,
+  claps: Number,
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  comments: [
+    {
+      author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+      },
+      text: String,
     },
-    comments: [
-      {
-        author: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'User',
-        },
-        text: String
-      }
-    ]
-  }
-);
+  ],
+});
 
-ArticleSchema.methods.clap = function() {
-  this.claps++;
+ArticleSchema.methods.clap = () => {
+  this.claps += 1;
   return this.save();
-}
+};
 
-ArticleSchema.methods.comments = function(c) {
+ArticleSchema.methods.comment = (c) => {
   this.comments.push(c);
   return this.save();
-}
+};
 
-ArticleSchema.methods.addAuthor = function(author_id) {
-  this.author = author_id;
+ArticleSchema.methods.addAuthor = (authorId) => {
+  this.author = authorId;
   return this.save();
-}
+};
 
-ArticleSchema.methods.getUserArticle = function(_id) {
-  Article.find({ 'author': _id }).then((article) => {
-    return article;
-  });
-}
+ArticleSchema.methods.getUserArticle = (_id) => {
+  Article.find({ _id }).then(article => article);
+};
 
 module.exports = mongoose.model('Article', ArticleSchema);
