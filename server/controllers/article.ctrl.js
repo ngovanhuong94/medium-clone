@@ -5,7 +5,7 @@ const cloudinary = require('cloudinary');
 
 module.exports = {
   addArticle: (req, res, next) => {
-    let {
+    const {
       text,
       title,
       claps,
@@ -14,7 +14,7 @@ module.exports = {
 
     if (req.files.image) {
       cloudinary.uploader.upload(req.files.image.path, (result) => {
-        let obj = {
+        const obj = {
           text,
           title,
           claps,
