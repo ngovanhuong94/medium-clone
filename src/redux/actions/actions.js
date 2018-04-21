@@ -27,3 +27,36 @@ export const getArticle = articleId => (dispatch) => {
       dispatch({ type: 'VIEW_ARTICLE', article });
     }).catch(err => console.log(err));
 };
+
+export const comment = () => (dispatch) => {};
+
+export const clap = articleId => (dispatch) => {
+  axios.post(`${url}article/clap`, { article_id: articleId })
+    .then(() => {
+      dispatch({ type: 'CLAP_ARTICLE' });
+    }).catch(err => console.log(err));
+};
+
+export const follow = (id, userId) => (dispatch) => {
+  axios.post(`${url}user/follow`, { id, user_id: userId })
+    .then(() => {
+      dispatch({ type: 'FOLLOW_USER', user_id: userId });
+    }).catch(err => console.log(err));
+};
+
+export const SignInUser = userData => (dispatch) => {
+  axios.post(`${url}user`, { user_data: userData })
+    .then((res) => {
+      const user = res.data;
+      localStorage.setItem('Auth', JSON.stringify(user));
+      dispatch({ type: 'SET_USER', user });
+    }).catch(err => console.log(err));
+};
+
+export const toggleClose = () => (dispatch) => {
+  dispatch({ type: 'TOGGLE_MODAL', modalMode: false });
+};
+
+export const toggleOpen = () => (dispatch) => {
+  dispatch({ type: 'TOGGLE_MODAL', modalMode: true });
+};
