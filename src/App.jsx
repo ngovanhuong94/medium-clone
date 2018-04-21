@@ -6,6 +6,7 @@ import Editor from './components/Editor';
 import Feed from './components/Feed';
 import Header from './components/Header';
 import Profile from './components/Profile';
+import requireAuthentication from './utils/requireAuth';
 import SignInWith from './components/SignInWith';
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
         <Route exact path="/" component={Feed} />
         <Route path="/profile/:id" component={Profile} />
         <Route path="/articleview/:id" component={ArticleView} />
-        <Route path="/editor" component={Editor} />
+        <Route path="/editor" component={requireAuthentication(Editor)} />
         <Route path="**" component={Feed} />
       </Switch>
     </div>
