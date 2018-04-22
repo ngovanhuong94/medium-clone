@@ -33,7 +33,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server:lint": "./node_modules/.bin/eslint server/**/*.js"
+    "server:lint": "./node_modules/.bin/eslint server/**/*.js",
+    "app:lint": "./node_modules/.bin/eslint src/**/*.jsx"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

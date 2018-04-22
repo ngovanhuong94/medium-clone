@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { store, history } from './redux/store';
 
 import { getUser } from './redux/actions/actions';
-// import './assets/medium.css';
+import './assets/medium.css';
 
 if (localStorage.Auth) {
   store.dispatch({ type: 'SET_USER', user: JSON.parse(localStorage.Auth) });
