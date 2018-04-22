@@ -12,6 +12,8 @@
       "no-script-url": 0,
       "jsx-ally/anchor-is-valid": 0,
       "react/prop-types": 0,
+      "react/no-string-refs": 0,
+      "react/self-closing-comp": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
