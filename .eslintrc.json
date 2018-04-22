@@ -9,6 +9,8 @@
       "no-use-before-define": 0,
       "no-case-declarations": 0,
       "no-underscore-dangle": 0,
+      "no-script-url": 0,
+      "jsx-ally/anchor-is-valid": 0,
       "react/prop-types": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
