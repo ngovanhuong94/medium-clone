@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
-import App from './App.jsx';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import { store, history } from './redux/store';
