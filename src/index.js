@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
-import App from './App';
+import App from './App.jsx';
 import registerServiceWorker from './registerServiceWorker';
 
 import { store, history } from './redux/store';
@@ -22,15 +22,13 @@ if (localStorage.Auth) {
   });
 }
 
-ReactDOM.render(
-  (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route path="/" component={App} />
-        </Switch>
-      </ConnectedRouter>
-    </Provider>
-  ), document.getElementById('root'),
-);
+ReactDOM.render((
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route path="/" component={App} />
+      </Switch>
+    </ConnectedRouter>
+  </Provider>
+), document.getElementById('root'));
 registerServiceWorker();

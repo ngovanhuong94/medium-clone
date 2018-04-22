@@ -7,7 +7,7 @@ import {
   toggleOpen,
 } from '../redux/actions/actions';
 
-class SignInUser extends Component {
+class SignInWith extends Component {
   render() {
     const responseGoogle = (res) => {
       const postData = {
@@ -34,14 +34,14 @@ class SignInUser extends Component {
             <h2 className="grayed-heading center">Sign In</h2>
             <ul className="omniauth-button-group">
               <li className="omniauth-button google">
-                <GoolgleLogin
+                <GoogleLogin
                   className="button google"
-                  clientId="YOUR_CLIENT_ID"
+                  clientId="694037490232-vlneistmb8b41iqqvu4qv1n80e8us2rr.apps.googleusercontent.com"
                   onSucess={responseGoogle}
                   onFailure={responseGoogle}
                 >
                   <i className="fa fa-google"></i><span>SignIn with Google</span>
-                </GoolgleLogin>
+                </GoogleLogin>
               </li>
             </ul>
           </nav>
@@ -59,4 +59,4 @@ export default connect(mapStateToProps, {
   toggleClose,
   toggleOpen,
   SignInUser,
-})(SignInUser);
+})(SignInWith);
