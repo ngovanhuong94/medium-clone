@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { store, history } from './redux/store';
 
 import { getUser } from './redux/actions/actions';
-// import './assets/medium.css';
+import './assets/medium.css';
 
 if (localStorage.Auth) {
   store.dispatch({ type: 'SET_USER', user: JSON.parse(localStorage.Auth) });
@@ -22,15 +22,13 @@ if (localStorage.Auth) {
   });
 }
 
-ReactDOM.render(
-  (
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route path="/" component={App} />
-        </Switch>
-      </ConnectedRouter>
-    </Provider>
-  ), document.getElementById('root'),
-);
+ReactDOM.render((
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route path="/" component={App} />
+      </Switch>
+    </ConnectedRouter>
+  </Provider>
+), document.getElementById('root'));
 registerServiceWorker();

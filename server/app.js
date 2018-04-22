@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cloudinary = require('cloudinary');
+require('dotenv').config();
 
 const routes = require('./routes/');
 
@@ -12,9 +13,9 @@ const router = express.Router();
 const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/medium';
 
 cloudinary.config({
-  cloud_name: 'YOUR_CLOUDINARY_NAME_HERE',
-  api_key: 'YOUR_CLOUDINARY_API_KEY_HERE',
-  api_secret: 'YOUR_CLOUDINARY_API_SECRET_HERE',
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 try {
