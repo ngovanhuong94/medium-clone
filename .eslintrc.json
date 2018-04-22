@@ -1,8 +1,12 @@
 {
-    "extends": "airbnb",
+    "extends": [
+      "airbnb",
+      "plugin:jsx-ally/recommended"
+    ],
     "plugins": [
       "react",
-      "import"
+      "import",
+      "jsx-ally"
     ],
     "rules": {
       "no-undef": 0,
@@ -11,7 +15,10 @@
       "no-underscore-dangle": 0,
       "no-script-url": 0,
       "jsx-ally/anchor-is-valid": 0,
+      "jsx-ally/no-redundant-roles": 0,
       "react/prop-types": 0,
+      "react/no-string-refs": 0,
+      "react/self-closing-comp": 0,
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
